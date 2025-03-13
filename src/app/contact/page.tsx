@@ -13,7 +13,7 @@ const page = () => {
       {/* Meaty part - Meteor effect */}
       <Meteors number={80} />
       {/* Contact Us Form Container */}
-      <div className="relative z-10 max-w-2xl mx-auto p-6 mt-36 sm:p-8 bg-gray-800 bg-opacity-90 rounded-xl shadow-lg mt-12">
+      <div className="relative z-10 max-w-2xl mx-auto p-6 mt-36 sm:p-8 bg-gray-800 bg-opacity-90 rounded-xl shadow-lg">
         <h2 className="text-3xl font-bold text-white text-center mb-6">
           Contact Us
         </h2>
