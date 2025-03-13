@@ -6,7 +6,7 @@ import {
   useMotionTemplate,
   useMotionValue,
   useTransform,
-} from "motion/react";
+} from "framer-motion"; // Changed from "motion/react" to "framer-motion"
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -22,17 +22,16 @@ export function Button({
 }: {
   borderRadius?: string;
   children: React.ReactNode;
-  as?: any;
+  as?: React.ElementType; // Replaced 'any' with proper React type
   containerClassName?: string;
   borderClassName?: string;
   duration?: number;
   className?: string;
-  [key: string]: any;
-}) {
+} & React.ButtonHTMLAttributes<HTMLButtonElement>) { // Replaced [key: string]: any
   return (
     <Component
       className={cn(
-        "bg-transparent relative text-xl  h-16 w-40 p-[1px] overflow-hidden ",
+        "bg-transparent relative text-xl h-16 w-40 p-[1px] overflow-hidden",
         containerClassName
       )}
       style={{
@@ -80,9 +79,9 @@ export const MovingBorder = ({
   duration?: number;
   rx?: string;
   ry?: string;
-  [key: string]: any;
-}) => {
-  const pathRef = useRef<any>();
+} & React.SVGProps<SVGSVGElement>) => { // Replaced [key: string]: any
+  const pathRef = useRef<SVGRectElement | null>(null); // Fixed 'any' type here too
+
   const progress = useMotionValue<number>(0);
 
   useAnimationFrame((time) => {
