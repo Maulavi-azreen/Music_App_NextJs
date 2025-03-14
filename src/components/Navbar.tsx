@@ -30,6 +30,10 @@ const Navbar = ({ className }: { className?: string }) => {
           <MenuItem setActive={setActive} active={active} item="Contact Us">
         </MenuItem>
         </Link>
+        <Link href={"/login"}>
+          <MenuItem setActive={setActive} active={active} item="Get Started">
+        </MenuItem>
+        </Link>
           </Menu>
     </div>
   )

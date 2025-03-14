@@ -69,7 +69,6 @@ const page = () => {
               <CardItem
                 translateZ={20}
                 as={Link}
-                href={`/courses/${course.slug}`} // Assuming a course detail page
                 className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
               >
                 Learn More →
