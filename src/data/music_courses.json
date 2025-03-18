@@ -1,55 +1,92 @@
 {
-    "courses": [
-      {
-        "id": 1,
-        "title": "Beginner Guitar Masterclass",
-        "slug": "beginner-guitar-masterclass",
-        "description": "Learn the basics of guitar playing, from chords to simple songs.",
-        "price": 49.99,
-        "instructor": "John Mayer",
-        "isFeatured": true,
-        "image": "/assets/images/guitar.jpg"
-      },
-      {
-        "id": 2,
-        "title": "Advanced Piano Techniques",
-        "slug": "advanced-piano-techniques",
-        "description": "Master complex piano techniques and improve your performance skills.",
-        "price": 79.99,
-        "instructor": "Lang Lang",
-        "isFeatured": true,
-        "image": "/assets/images/piano.jpg"
-      },
-      {
-        "id": 3,
-        "title": "Vocal Training Essentials",
-        "slug": "vocal-training-essentials",
-        "description": "Improve your vocal range, control, and performance with expert guidance.",
-        "price": 59.99,
-        "instructor": "Adele",
-        "isFeatured": false,
-        "image": "/assets/images/vocal.jpg"
-      },
-      {
-        "id": 4,
-        "title": "Music Production for Beginners",
-        "slug": "music-production-beginners",
-        "description": "Get started with music production tools, techniques, and workflows.",
-        "price": 99.99,
-        "instructor": "Timbaland",
-        "isFeatured": true,
-        "image": "/assets/images/music.jpg"
-      },
-      {
-        "id": 5,
-        "title": "DJ Skills and Mixing Techniques",
-        "slug": "dj-skills-mixing-techniques",
-        "description": "Learn the art of DJing, from beat matching to live performance tricks.",
-        "price": 69.99,
-        "instructor": "Calvin Harris",
-        "isFeatured": false,
-        "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-      }
-    ]
-  }
-  
+  "courses": [
+    {
+      "id": 1,
+      "title": "Beginner Guitar Masterclass",
+      "slug": "beginner-guitar-masterclass",
+      "category": "all-courses",
+      "description": "Learn the basics of guitar playing, from chords to simple songs.",
+      "price": 49.99,
+      "instructor": "John Mayer",
+      "isFeatured": true,
+      "image": "/assets/images/guitar.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Advanced Piano Techniques",
+      "slug": "advanced-piano-techniques",
+      "category": "advanced-composition",
+      "description": "Master complex piano techniques and improve your performance skills.",
+      "price": 79.99,
+      "instructor": "Lang Lang",
+      "isFeatured": true,
+      "image": "/assets/images/piano.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Vocal Training Essentials",
+      "slug": "vocal-training-essentials",
+      "category": "song-writing",
+      "description": "Improve your vocal range, control, and performance with expert guidance.",
+      "price": 59.99,
+      "instructor": "Adele",
+      "isFeatured": false,
+      "image": "/assets/images/vocal.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Music Production for Beginners",
+      "slug": "music-production-beginners",
+      "category": "music-production",
+      "description": "Get started with music production tools, techniques, and workflows.",
+      "price": 99.99,
+      "instructor": "Timbaland",
+      "isFeatured": true,
+      "image": "/assets/images/music.jpg"
+    },
+    {
+      "id": 5,
+      "title": "DJ Skills and Mixing Techniques",
+      "slug": "dj-skills-mixing-techniques",
+      "category": "music-production",
+      "description": "Learn the art of DJing, from beat matching to live performance tricks.",
+      "price": 69.99,
+      "instructor": "Calvin Harris",
+      "isFeatured": false,
+      "image": "/assets/images/piano.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Basic Music Theory Fundamentals",
+      "slug": "basic-music-theory-fundamentals",
+      "category": "basic-music-theory",
+      "description": "Understand the building blocks of music theory from scratch.",
+      "price": 39.99,
+      "instructor": "Hans Zimmer",
+      "isFeatured": true,
+      "image": "/assets/images/piano.jpg"
+    },
+    {
+      "id": 7,
+      "title": "Songwriting Masterclass",
+      "slug": "songwriting-masterclass",
+      "category": "song-writing",
+      "description": "Craft compelling lyrics and melodies with professional techniques.",
+      "price": 89.99,
+      "instructor": "Taylor Swift",
+      "isFeatured": true,
+      "image": "/assets/images/piano.jpg"
+    },
+    {
+      "id": 8,
+      "title": "Orchestral Composition",
+      "slug": "orchestral-composition",
+      "category": "advanced-composition",
+      "description": "Learn to compose for full orchestras and large ensembles.",
+      "price": 129.99,
+      "instructor": "John Williams",
+      "isFeatured": false,
+      "image": "/assets/images/piano.jpg"
+    }
+  ]
+}
