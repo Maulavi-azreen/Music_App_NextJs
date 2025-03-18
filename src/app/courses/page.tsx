@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import Link from "next/link";
+// import Link from "next/link";
 import Image from "next/image";
 import { CardBody, CardContainer, CardItem } from "../../components/ui/3d-card";
 import courseData from '../../data/music_courses.json'
@@ -65,7 +65,7 @@ const page = () => {
             </CardItem>
 
             {/* Buttons */}
-            <div className="flex justify-between items-center mt-8">
+            {/* <div className="flex justify-between items-center mt-8">
               <CardItem
                 translateZ={20}
                 as={Link}
@@ -80,7 +80,7 @@ const page = () => {
               >
                 Enroll Now
               </CardItem>
-            </div>
+            </div> */}
           </CardBody>
         </CardContainer>
       ))}

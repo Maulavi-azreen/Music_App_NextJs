@@ -1,33 +1,37 @@
 import type { Config } from "tailwindcss";
-// import defaultTheme from "tailwindcss/defaultTheme";
-// import colors from "tailwindcss/colors";
-import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
+import plugin from "tailwindcss/plugin";
 import svgToDataUri from "mini-svg-data-uri";
- 
-// const colors = require("tailwindcss/colors");
 
-// Type definitions for the plugin functions
-interface TailwindPluginContext {
-  addBase: (styles: Record<string, Record<string, string>>) => void;
-  theme: (path: string) => Record<string, string>;
-  matchUtilities: (
-    utilities: Record<string, (value: string) => Record<string, string>>,
-    options: { values: Record<string, string>; type: string }
-  ) => void;
+type ColorValue = string | { [key: string]: ColorValue };
+type ColorObject = { [key: string]: ColorValue };
+
+function flattenColors(colorObj: ColorObject): Record<string, string> {
+  const result: Record<string, string> = {};
+  for (const [key, value] of Object.entries(colorObj)) {
+    if (typeof value === "string") {
+      result[key] = value;
+    } else if (typeof value === "object" && value !== null) {
+      for (const [shade, color] of Object.entries(value as object)) {
+        result[`${key}-${shade}`] = color as string;
+      }
+    }
+  }
+  return result;
 }
-// This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).
-function addVariablesForColors({ addBase, theme }: TailwindPluginContext) {
-  const allColors = flattenColorPalette(theme("colors"));
-  const newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val as string])
-  );
 
+const addVariablesForColors = plugin(({ addBase, theme }) => {
+  const colors = theme("colors") as ColorObject;
+  const allColors = flattenColors(colors);
+  const newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
   addBase({
     ":root": newVars,
   });
-}
+});
 
-function addSvgPatterns({ matchUtilities, theme }: TailwindPluginContext) {
+const addSvgPatterns = plugin(({ matchUtilities, theme }) => {
+  const backgroundColors = theme("backgroundColor") as ColorObject;
   matchUtilities(
     {
       "bg-grid": (value: string) => ({
@@ -46,10 +50,10 @@ function addSvgPatterns({ matchUtilities, theme }: TailwindPluginContext) {
         )}")`,
       }),
     },
-    { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
+    { values: flattenColors(backgroundColors), type: "color" }
   );
-}
-/** @type {import('tailwindcss').Config} */
+});
+
 export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -66,17 +70,17 @@ export default {
       animation: {
         spotlight: "spotlight 2s ease .75s 1 forwards",
         scroll:
-        "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
         "meteor-effect": "meteor 5s linear infinite",
       },
       keyframes: {
         spotlight: {
           "0%": {
-            opacity: '0',
+            opacity: "0",
             transform: "translate(-72%, -62%) scale(0.5)",
           },
           "100%": {
-            opacity: '1',
+            opacity: "1",
             transform: "translate(-50%,-40%) scale(1)",
           },
         },
@@ -98,4 +102,3 @@ export default {
   },
   plugins: [addVariablesForColors, addSvgPatterns],
 } satisfies Config;
-
