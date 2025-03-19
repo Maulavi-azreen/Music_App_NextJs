@@ -20,16 +20,19 @@ export const sendEmail = async ({ email, emailType, userId }: { email: string, e
     }
 
     const transporter = nodemailer.createTransport({
-      host: 'sandbox.smtp.mailtrap.io',
-      port: 2525,
+      host: 'smtp.gmail.com',
+      port: 587,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASSWORD,
       },
+      tls: {
+        rejectUnauthorized: false,  // Optional: to allow self-signed certificates (for debugging)
+      },
     });
 
     const mailOptions = {
-      from: 'yesoher853@erapk.com',
+      from: process.env.EMAIL_USER,
       to: email,
       subject: emailType === 'RESET' ? 'Reset Password Request - Music App' : 'Verify Your Email - Music App',
       html: emailType === 'RESET'
